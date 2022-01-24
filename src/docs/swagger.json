@@ -1,0 +1,202 @@
+{
+    "openapi" : "3.0.0",
+    "info": {
+        "title" : "Visual Nuts Test",
+        "description": "Api builded for Visual Nuts test",
+        "contact" : {
+            "email" : "rafaelalmeida.dev08@gmail.com"
+        },
+        "version" : "1.0.0"
+    },
+    "servers": [
+        {
+            "url" : "https://visualnutstest.herokuapp.com/",
+            "description": "Live API"
+        },
+        {
+            "url" : "http://localhost:5000",
+            "description": "Test Api"
+        }       
+    ],
+    "paths" : {
+        "/exercise1" : {
+            "post": {
+                "summary": "Print numbers from x to y",
+                "description" : " Route for retuning all the numbers from x to y Rota para cadastro de cidades",
+                "tags": ["Exercise1"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#components/schemas/Cidade"
+                            },
+                            "examples": {
+                                "target": {
+                                    "value": {
+                                        "target" : 100
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {                    
+                    "200": {
+                        "description": "Ok"                        
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/exercise2/1" : {
+            "get": {
+                "summary": "Return the number of countries in the world",
+                "description" : "Route for return the number of countries in the world",
+                "tags": ["Exercise2"],                
+                "responses": {                    
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "object",
+                                    "$ref": "#components/schemas/Country"                                    
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/exercise2/2" : {
+            "get": {
+                "summary": "Return the country with the most official languages, where they officially speak German",
+                "description" : "Route for find the country with the most official languages, where they officially speak German",
+                "tags": ["Exercise2"],                
+                "responses": {                    
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "object",                                    
+                                    "properties": {
+                                        "country" : {
+                                            "type" : "string"
+                                        },
+                                        "languages": {
+                                            "type:": "array",
+                                            "items": {
+                                                "description": "languages",
+                                                "type" : "string"
+                                            }
+                                        }
+                                    }                                       
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/exercise2/3" : {
+            "get": {
+                "summary": "Return the number of all the official languages spoken in the listed countries",
+                "description" : "Route for count all the official languages spoken in the listed countries",
+                "tags": ["Exercise2"],                
+                "responses": {                    
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "object",
+                                    "properties": {
+                                        "total" : {
+                                            "type" : "number"
+                                        }
+                                    }                                   
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/exercise2/4" : {
+            "get": {
+                "summary": "Return the country with the highest number of official languages.",
+                "description" : "Route for find the country with the highest number of official languages.",
+                "tags": ["Exercise2"],                
+                "responses": {                    
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "object",
+                                    "$ref": "#components/schemas/Country"                                    
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        },
+        "/exercise2/5" : {
+            "get": {
+                "summary": "Return the most common official language(s), of all countries.",
+                "description" : "Route for find the most common official language(s), of all countries.",
+                "tags": ["Exercise2"],                
+                "responses": {                    
+                    "200": {
+                        "description": "Ok",
+                        "content": {
+                            "application/json": {
+                                "schema": {       
+                                    "type": "object",
+                                    "$ref": "#components/schemas/Country"                                    
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "Internal Server Error"
+                    }
+                }
+            }
+        }
+    },
+    "components" : {
+        "schemas": {
+            "Country" : {
+                "type": "object",
+                "properties" : {
+                    "Country" : {
+                        "type": "string"
+                    },
+                    "Languages": {
+                        "type" : "array",
+                        "properties": {
+                            "langa" : "string"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
